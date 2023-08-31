@@ -7,6 +7,7 @@ import { LoginFormComponent } from './components/login-form/login-form.component
 
 @NgModule({
   declarations: [
+    LoginFormComponent,
     LoginFormComponent
   ],
   imports: [
