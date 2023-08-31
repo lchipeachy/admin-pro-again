@@ -1,0 +1,6 @@
+{
+    "exportall.config.relExclusion": [
+        "/src/app/features/admin/index.ts",
+        "/src/app/features/admin/pages/dashboard/index.ts"
+    ]
+}
