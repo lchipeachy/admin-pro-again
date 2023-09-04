@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { AdminLayoutRoutingModule } from './admin-layout-routing.module';
 
+import { AdminLayoutComponent } from './admin-layout.component';
 import {
   FooterComponent,
   HeaderComponent,
@@ -16,7 +17,8 @@ import {
     FooterComponent,
     HeaderComponent,
     BreadcrumsComponent,
-    SidebarComponent
+    SidebarComponent,
+    AdminLayoutComponent
   ],
   imports: [
     CommonModule,

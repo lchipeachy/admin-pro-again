@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-register',
+  selector: 'register-form',
   templateUrl: './register.component.html',
 })
 export class RegisterComponent {

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-breadcrums',
+  selector: 'admin-breadcrumbs',
   templateUrl: './breadcrums.component.html',
   styles: [
   ]
