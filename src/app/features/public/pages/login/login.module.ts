@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { LoginRoutingModule } from './login-routing.module';
 import { LoginComponent } from './login.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
+import { BtnComponent } from '@shared/components';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { LoginFormComponent } from './components/login-form/login-form.component
   ],
   imports: [
     CommonModule,
-    LoginRoutingModule
+    LoginRoutingModule,
+    BtnComponent
   ]
 })
 export class LoginModule { }
