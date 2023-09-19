@@ -1,27 +1,33 @@
 <form>
-    <div className="mb-4">
+    <div class="mb-4">
         <div class="form-control w-full mt-4">
             <label Name="label">Nombres</label>
             <input class="input input-bordered w-full" type="text" />
         </div>
-        <div class="form-control w-full mt-4">
-            <label Name="label">Apellidos</label>
-            <input class="input input-bordered w-full" type="text" />
+    <div class="form-control w-full mt-4">
+        <label Name="label">Apellidos</label>
+        <input class="input input-bordered w-full" type="text" />
+    </div>
+    <div class="form-control w-full mt-4">
+        <label Name="label">Correo Electrónico</label>
+        <input class="input input-bordered w-full" type="text" />
+    </div>
+    <div class="form-control w-full mt-4">
+        <label Name="label">Contraseña</label>
+            <div class="relative">
+                <input
+                class="input input-bordered w-full"
+                [type]="showPassword() ? 'text' : 'password'"
+            />
+            <shared-eye-btn  />
+            </div>
         </div>
-        <div class="form-control w-full mt-4">
-            <label Name="label">Correo Electrónico</label>
-            <input class="input input-bordered w-full" type="text" />
-        </div>
-        <div class="form-control w-full mt-4">
-            <label Name="label">Contraseña</label>
-            <input class="input input-bordered w-full" type="password" />
-        </div>
-        <div class="form-control w-full mt-4">
-            <label Name="label">Repetir contraseña</label>
+    <div class="form-control w-full mt-4">
+        <label Name="label">Repetir contraseña</label>
             <input class="input input-bordered w-full" type="password" />
         </div>
     </div>
-    <shared-btn>Registrarse</shared-btn>
+    <shared-btn [type]="'submit'">Registrarse</shared-btn>
     <div class="text-center mt-4">
         ¿Ya tiene una cuenta?
         <span

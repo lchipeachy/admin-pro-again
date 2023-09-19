@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
+import { EyeBtnService } from '@core/services';
 
 @Component({
-  selector: 'app-register-form',
+  selector: 'register-form',
   templateUrl: './register-form.component.html',
   styles: [
     `
@@ -16,5 +17,7 @@ import { Component } from '@angular/core';
   ],
 })
 export class RegisterFormComponent {
+  private eyeBtnService = inject(EyeBtnService);
 
+  public showPassword = computed<boolean>(this.eyeBtnService.showEye);
 }
