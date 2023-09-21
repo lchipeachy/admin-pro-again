@@ -1,0 +1,10 @@
+<div class="toats toast-end" [ngClass]="fadeOut() ? 'animated_animated fadeOut'" *ngIf="isActive$()">
+    <div class="alert" [ngClass]="toastConfig$().color">
+        <fa-icon [icon]="toastConfig$()?.icon" />
+        <span>{{ toastConfig$().message }}</span>
+        <div>
+            <shared-circle-btn (click)="closeToast()"/>
+        </div>
+    </div>
+</div>
+
