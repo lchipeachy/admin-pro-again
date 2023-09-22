@@ -26,14 +26,15 @@ export class LoginFormComponent {
     password: ['', [Validators.required]],
   });
 
+
   public onLogin():void {
-    this.authService.sendLogin(this.loginForm.value)
+    this.authService.login(this.loginForm.value)
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe({
         next: () => this.router.navigateByUrl('/dashboard'),
-        error: (message) =>  {
+        error: (message) => {
           console.log(message)
-          this.toastService.show('error', message, faCircleXmark);
+          this.toastService.show('error',message,faCircleXmark);
         }
       });
   }
