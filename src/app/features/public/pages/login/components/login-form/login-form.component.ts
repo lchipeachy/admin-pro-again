@@ -1,13 +1,11 @@
 import { Component, DestroyRef, computed, inject, signal } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { faCircleXmark } from '@fortawesome/free-regular-svg-icons';
 
-
-import { AuthService, EyeBtnService, ToastService } from '@core/services';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import { AlertColor } from '@core/enum';
+import { EyeBtnService, ToastService } from '@core/services';
+import { AuthService } from '@features/public';
 
 @Component({
   selector: 'login-form',
@@ -21,7 +19,6 @@ export class LoginFormComponent {
   private destroyRef = inject(DestroyRef);
   private toastService = inject(ToastService);
 
-  private faCircleXmark: IconDefinition = (faCircleXmark);
   public showPassword = computed<boolean>(this.eyeBtnService.showEye);
 
   public loginForm: FormGroup = this.fb.group({
@@ -36,7 +33,7 @@ export class LoginFormComponent {
         next: () => this.router.navigateByUrl('/dashboard'),
         error: (message) =>  {
           console.log(message)
-          this.toastService.show(AlertColor.ERROR, message, faCircleXmark);
+          this.toastService.show('error', message, faCircleXmark);
         }
       });
   }
