@@ -5,7 +5,7 @@ import { isAuthenticatedGuard, isNotAuthenticatedGuard } from './core';
 
 const routes: Routes = [
   {
-    path: 'auth',
+    path: '',
     canActivate: [isNotAuthenticatedGuard],
     loadChildren: () => import('@features/public').then(m => m.PublicModule),
   },
