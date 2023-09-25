@@ -1,3 +1,4 @@
+export * from './models';
 export * from './pages';
 export * from './public-layout';
 export * from './public-routing.module';
