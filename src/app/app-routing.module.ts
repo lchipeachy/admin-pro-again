@@ -1,22 +1,27 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
-import { isAuthenticatedGuard, isNotAuthenticatedGuard } from './core';
+import { privateGuard, publicGuard } from './core';
 
 const routes: Routes = [
   {
-    path: '',
-    canActivate: [isNotAuthenticatedGuard],
+    path: 'auth',
+    canActivate: [publicGuard],
     loadChildren: () => import('@features/public').then(m => m.PublicModule),
   },
   {
     path: 'dashboard',
-    canActivate: [isAuthenticatedGuard],
+    canActivate: [privateGuard],
     loadChildren: () => import('@features/admin').then(m => m.AdminModule),
   },
   {
     path: '404',
     loadComponent: () => import('@shared/pages').then(c => c.NotFoundComponent),
+  },
+  {
+    path: '',
+    redirectTo: '/auth',
+    pathMatch: 'full'
   },
   {
     path: '**',
