@@ -9,6 +9,7 @@ import { LoginFormComponent } from './components/login-form/login-form.component
 import { BtnComponent } from '@shared/components';
 import { EyeBtnComponent } from '@shared/components/eye-btn/eye-btn.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CustomLabelDirective } from '@shared/directives';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     BtnComponent,
     EyeBtnComponent,
     FontAwesomeModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CustomLabelDirective
   ]
 })
 export class LoginModule { }
