@@ -58,14 +58,14 @@ export class CustomLabelDirective {
         }
 
         if (errors.includes('minlength')) {
-            const { requiredLength } = this._errors['minLength'];
+            const { requiredLength } = this._errors['minlength'];
             this.htmlElement.nativeElement.innerText =
                 `Este campo debe tener como mínimo ${requiredLength} caracteres`;
             return;
         } 
 
         if (errors.includes('maxlength')) {
-            const { requiredLength } = this._errors['maxLength'];
+            const { requiredLength } = this._errors['maxlength'];
             this.htmlElement.nativeElement.innerText =
                 `Este campo debe tener como máximo ${requiredLength} caracteres`;
             return;
