@@ -27,6 +27,7 @@ export class RegisterFormComponent {
 
   public registerForm: FormGroup = this.fb.group(
     {
+      
       first_name: ['', [Validators.required, Validators.minLength(2)]],
       last_name: ['', [Validators.required, Validators.minLength(2)]],
       email: ['', [Validators.required, Validators.email]],
@@ -50,6 +51,7 @@ export class RegisterFormComponent {
   );
 
     onRegister(): void {
+      //console.log(this.registerForm.valid)
       if (this.registerForm.valid) {
         this.authService
         .register(this.registerForm.value)
