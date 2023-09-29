@@ -1,12 +1,12 @@
+import { Component, Input, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
 
-import { ButtonColor, Size } from '@core/models';
+import { BTN_COLORS, BTN_SIZE, ButtonColor, Size } from '@core/models';
 
 @Component({
   selector: 'shared-btn',
   standalone: true,
-  imports: [ CommonModule ],
+  imports: [CommonModule],
   templateUrl: './btn.component.html',
 })
 export class BtnComponent {
@@ -21,12 +21,17 @@ export class BtnComponent {
   @Input()
   public size:Size = 'md';
 
+  private mapSizes = BTN_SIZE;
+  private mapColors = BTN_COLORS;
+
   get styles() {
+    const sizes = this.mapSizes[this.size];
+    const colors = this.mapColors[this.color];
     return {
-      [`btn-${this.color}`]: true,
-      [`btn-${this.size}`]: true,
+      ...sizes,
+      ...colors,
       'btn-outline': this.outline,
-      'btn-disabled': this.btnDisabled
+      'btn-disabled': this.btnDisabled,
     };
   }
 }

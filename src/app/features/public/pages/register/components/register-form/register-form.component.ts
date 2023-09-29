@@ -27,7 +27,6 @@ export class RegisterFormComponent {
 
   public registerForm: FormGroup = this.fb.group(
     {
-      
       first_name: ['', [Validators.required, Validators.minLength(2)]],
       last_name: ['', [Validators.required, Validators.minLength(2)]],
       email: ['', [Validators.required, Validators.email]],
@@ -37,7 +36,8 @@ export class RegisterFormComponent {
           Validators.required,
           Validators.minLength(6),
           Validators.maxLength(50),
-          Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=!]).*$/
+          Validators.pattern(
+            /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=!]).{8,}$/
           ),
         ],
       ],
@@ -50,20 +50,29 @@ export class RegisterFormComponent {
     }
   );
 
-    onRegister(): void {
-      //console.log(this.registerForm.valid)
-      if (this.registerForm.valid) {
-        this.authService
+  onRegister(): void {
+    if (this.registerForm.valid) {
+      this.authService
         .register(this.registerForm.value)
         .pipe(takeUntilDestroyed(this.destroyRef))
         .subscribe({
           next: ({ message }) => {
-            this.toastService.show('success', message, faCheckCircle);
+            this.toastService.show({
+              color: 'success',
+              message,
+              icon: faCheckCircle,
+              duration: 4000,
+            });
             this.router.navigateByUrl('/');
           },
           error: (message) => {
             console.log(message);
-            this.toastService.show('error', message, faCircleXmark);
+            this.toastService.show({
+              color: 'error',
+              message,
+              icon: faCircleXmark,
+              duration: 4000,
+            });
           },
         });
     }
