@@ -58,33 +58,33 @@ export class CustomLabelDirective {
         }
 
         if (errors.includes('minlength')) {
-            const { requiredLength } = this._errors['minlength'];
-            this.htmlElement.nativeElement.innerText =
-                `Este campo debe tener como mínimo ${requiredLength} caracteres`;
-            return;
-        } 
+        const { requiredLength } = this._errors['minlength'];
+        this.htmlElement.nativeElement.innerText = `Este campo debe tener como mínimo ${requiredLength} caracteres.`;
+        return;
+        }
 
         if (errors.includes('maxlength')) {
-            const { requiredLength } = this._errors['maxlength'];
-            this.htmlElement.nativeElement.innerText =
-                `Este campo debe tener como máximo ${requiredLength} caracteres`;
-            return;
-        } 
+        const { requiredLength } = this._errors['maxlength'];
+        this.htmlElement.nativeElement.innerText = `Este campo debe tener como máximo ${requiredLength} caracteres.`;
+        return;
+        }
 
         if (errors.includes('pattern')) {
-            const { requiredPattern } = this._errors['pattern'];
-            let message = '';
+        const { requiredPattern } = this._errors['pattern'];
+        let message = '';
 
-            switch(requiredPattern) {
-                case '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=!]).*$/':
-                    message = 'El campo debe tener al menos una mayúscula, una minúscula, un número y un carácter especial'
-                break;
+        switch (requiredPattern) {
+            case '/(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@#$%^&+=!]).{8,}$/':
+            message =
+                'El campo debe tener al menos una mayúscula, una minúscula, un número y un carácter especial (@#$%^&+=!)';
+            break;
 
-                default:
-                break;
-            }
-            this.htmlElement.nativeElement.innerText = message;
-            return;
-        } 
+            default:
+            break;
+        }
+
+        this.htmlElement.nativeElement.innerText = message;
+        return;
+        }
     }
 }
