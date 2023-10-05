@@ -9,8 +9,8 @@ import {
   HeaderComponent,
   BreadcrumsComponent,
   SidebarComponent
-} from './components'
-
+} from './components';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -18,11 +18,12 @@ import {
     HeaderComponent,
     BreadcrumsComponent,
     SidebarComponent,
-    AdminLayoutComponent
+    AdminLayoutComponent,
   ],
   imports: [
     CommonModule,
-    AdminLayoutRoutingModule
+    AdminLayoutRoutingModule,
+    FontAwesomeModule,
   ]
 })
 export class AdminLayoutModule { }
