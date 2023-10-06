@@ -6,7 +6,6 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { TitleCardComponent } from './shared/components/title-card/title-card.component';
 
 @NgModule({
   declarations: [

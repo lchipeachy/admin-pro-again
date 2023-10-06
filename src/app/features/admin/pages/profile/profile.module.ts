@@ -19,7 +19,7 @@ import { ReactiveFormsModule } from '@angular/forms';
         TitleCardComponent,
         InputTextComponent,
         BtnComponent,
-        ReactiveFormsModule
+        ReactiveFormsModule,
     ]
 })
 export class ProfileModule { }
