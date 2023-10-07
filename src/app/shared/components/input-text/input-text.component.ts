@@ -1,14 +1,15 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { InputType } from '@core/models';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { CustomLabelDirective } from '@shared/directives';
 
 @Component({
   selector: 'shared-input-text',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
-  templateUrl: './input-text.component.html'
+  imports: [CommonModule, ReactiveFormsModule, CustomLabelDirective],
+  templateUrl: './input-text.component.html',
 })
 export class InputTextComponent {
   @Input()
@@ -18,10 +19,10 @@ export class InputTextComponent {
   public labelStyle: string = '';
 
   @Input()
-  public typeInput: InputType = 'text';
+  public type: InputType = 'text';
 
   @Input()
-  public value!: string;
+  placeholder: string = '';
 
   @Input()
   public control!: FormControl;
