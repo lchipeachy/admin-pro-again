@@ -8,7 +8,7 @@ import {
   FooterComponent,
   HeaderComponent,
   BreadcrumsComponent,
-  SidebarComponent,
+  SidebarComponent
 } from './components';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ToastComponent } from '@shared/components';
@@ -26,6 +26,7 @@ import { ToastComponent } from '@shared/components';
     AdminLayoutRoutingModule,
     FontAwesomeModule,
     ToastComponent,
-  ],
+    
+  ]
 })
-export class AdminLayoutModule {}
+export class AdminLayoutModule { }
