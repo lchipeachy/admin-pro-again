@@ -3,8 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { AnimalsRoutingModule } from './animals-routing.module';
 import { AnimalsComponent } from './animals.component';
-import { BtnComponent } from '@shared/components';
-
+import { BtnComponent, TitleCardComponent } from '@shared/components';
 
 @NgModule({
     declarations: [
@@ -13,7 +12,8 @@ import { BtnComponent } from '@shared/components';
     imports: [
         CommonModule,
         AnimalsRoutingModule,
-        BtnComponent
+        BtnComponent,
+        TitleCardComponent,
     ]
 })
 export class AnimalsModule { }

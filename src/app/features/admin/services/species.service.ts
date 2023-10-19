@@ -6,15 +6,15 @@ import { MyResponse } from '@core/models';
 
 @Injectable({
     providedIn: 'root'
-    })
-    export class SpeciesService {
+})
+export class SpeciesService {
     private apiService = inject(ApiService);
 
     getSpecie(species_id: string):Observable<MyResponse<Species>> {
         return this.apiService.getById<Species>("species",species_id)
     }
     
-    getSpiescies() :Observable<MyResponse<Species[]>>{
+    getSpecies() :Observable<MyResponse<Species[]>>{
         return this.apiService.getAll<Species[]>("species")
     }
     
