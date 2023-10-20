@@ -2,18 +2,19 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { SpeciesRoutingModule } from './species-routing.module';
-import { TitleCardComponent } from '@shared/components';
+import { BtnComponent, TitleCardComponent } from '@shared/components';
 import { SpeciesComponent } from './species.component';
-
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
     declarations: [
-        SpeciesComponent
+    SpeciesComponent
     ],
     imports: [
         CommonModule,
         SpeciesRoutingModule,
-        TitleCardComponent,
+        BtnComponent,
+        FontAwesomeModule
     ]
 })
 export class SpeciesModule { }

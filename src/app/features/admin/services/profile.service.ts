@@ -12,8 +12,8 @@ export class ProfileService {
     private apiService = inject(ApiService);
 
     editProfile(profile: ProfileForm, id: string): Observable<MyResponse<ProfileForm>> {
-    return this.apiService
-        .update<ProfileForm>('users', profile, id)
-        .pipe(catchError((error) => throwError(() => error.error.message)));
+        return this.apiService
+            .update<ProfileForm>('users', profile, id)
+            .pipe(catchError((error) => throwError(() => error.error.message)));
     }
 }

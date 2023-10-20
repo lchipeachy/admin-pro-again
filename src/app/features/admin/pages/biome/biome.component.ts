@@ -2,7 +2,7 @@ import { Component, inject, signal } from '@angular/core';
 import { ToastService } from '@core/services';
 import { Biome } from '@features/admin/models';
 import { BiomeService } from '@features/admin/services';
-import { faCircleXmark } from '@fortawesome/free-solid-svg-icons';
+import { faCircleXmark, faEllipsis, faPencil, faTrash } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
     selector: 'admin-biome',
@@ -17,6 +17,10 @@ export class BiomeComponent {
     private biomeService = inject(BiomeService);
     private toastService = inject(ToastService);
 
+    public faEllipsis = signal(faEllipsis);
+    public faPencil = signal(faPencil);
+    public faTrash = signal(faTrash);
+
 //al momento de iniciar el componente ngoninit
     ngOnInit(): void {
         this.getBiomes();
@@ -26,13 +30,13 @@ export class BiomeComponent {
         this.biomeService.getBiomes().subscribe({
         next: ({statusCode,message,reply}) => {
             if (statusCode === 200) {
-                this.biomes.set(reply);
+            this.biomes.set(reply);
             }else {
-                this.toastService.show({
-                    color: 'error',
-                    message,
-                    icon: faCircleXmark,
-                    duration: 4000,
+            this.toastService.show({
+                color: 'error',
+                message,
+                icon: faCircleXmark,
+                duration: 4000,
                 }) 
             }
         },
@@ -43,7 +47,7 @@ export class BiomeComponent {
                 icon: faCircleXmark,
                 duration: 4000,
                 }) 
-            }  
+        }  
         });
     }
 }

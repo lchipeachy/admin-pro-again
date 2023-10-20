@@ -11,13 +11,13 @@ module.exports = {
     daisyui: {
         themes: [{
             myDarkTheme: {
-                "primary": "#797F7A",          
-                "secondary": "#107869",          
+                "primary": "#416774",          
+                "secondary": "#106A78",          
                 "accent": "#7E0202",          
                 "neutral": "#47546D",          
-                "base-100": "#2F5233",          
+                "base-100": "#2F4D52",          
                 "info": "#3abff8",          
-                "success": "#94CC5D",          
+                "success": "#5DC5CC",          
                 "warning": "#F3C963",          
                 "error": "#D65151",
             },
