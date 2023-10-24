@@ -3,20 +3,24 @@ import { CommonModule } from '@angular/common';
 
 import { AnimalsRoutingModule } from './animals-routing.module';
 import { AnimalsComponent } from './animals.component';
-import { BtnComponent } from '@shared/components';
+import { BtnComponent, InputTextComponent, TitleCardComponent } from '@shared/components';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AnimalsFormComponent } from './component';
 
 @NgModule({
     declarations: [
-        AnimalsComponent
+        AnimalsComponent,
+        AnimalsFormComponent
     ],
     imports: [
         CommonModule,
         AnimalsRoutingModule,
         BtnComponent,
         FontAwesomeModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        InputTextComponent,
+        TitleCardComponent
     ]
 })
 export class AnimalsModule { }
