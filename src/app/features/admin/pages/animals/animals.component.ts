@@ -27,31 +27,30 @@ export class AnimalsComponent implements OnInit {
     ngOnInit(): void {
         this.getAnimals();
     }
-
     public setAnimal(animal:Animals) {
         this.animalsService.setAnimal(animal);
     }
 
-private getAnimals() {
-    this.animalsService.getAnimals().subscribe({
-        next: ({ statusCode, message, reply }) => {
-            if (statusCode === 200) {
-                this.animals.set(reply);
-            } else {
-            this.toastService.show({
-                color: 'error',
-                message,
-                icon: faCircleXmark,
-                duration: 4000,
-                })
-            }
-        },
-        error: (error) => {
-            this.toastService.show({
-                color: 'error',
-                message: error,
-                icon: faCircleXmark,
-                duration: 4000,
+    private getAnimals() {
+        this.animalsService.getAnimals().subscribe({
+            next: ({ statusCode, message, reply }) => {
+                if (statusCode === 200) {
+                    this.animals.set(reply);
+                } else {
+                    this.toastService.show({
+                        color: 'error',
+                        message,
+                        icon: faCircleXmark,
+                        duration: 4000,
+                    })
+                }
+            },
+            error: (error) => {
+                this.toastService.show({
+                    color: 'error',
+                    message: error,
+                    icon: faCircleXmark,
+                    duration: 4000,
                 })
             }
         });

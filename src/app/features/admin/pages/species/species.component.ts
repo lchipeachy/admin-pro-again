@@ -25,28 +25,32 @@ public species = signal<Species[]>([])
         this.getSpecies();
     }
 
+    public setSpecie(specie: Species) {
+        this.speciesService.setSpecie(specie);
+    }
+
     private getSpecies() {
         this.speciesService.getSpecies().subscribe({
-        next: ({ statusCode, message, reply }) => {
-            if (statusCode === 200) {
-            this.species.set(reply);
-            } else {
-            this.toastService.show({
-                color: 'error',
-                message,
-                icon: faCircleXmark,
-                duration: 4000,
-            })
+            next: ({ statusCode, message, reply }) => {
+                if (statusCode === 200) {
+                    this.species.set(reply);
+                } else {
+                    this.toastService.show({
+                        color: 'error',
+                        message,
+                        icon: faCircleXmark,
+                        duration: 4000,
+                    })
+                }
+            },
+            error: (error) => {
+                this.toastService.show({
+                    color: 'error',
+                    message: error,
+                    icon: faCircleXmark,
+                    duration: 4000,
+                })
             }
-        },
-        error: (error) => {
-            this.toastService.show({
-            color: 'error',
-            message: error,
-            icon: faCircleXmark,
-            duration: 4000,
-            })
-        }
         });
     }
 }
