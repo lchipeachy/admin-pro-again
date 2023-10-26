@@ -21,7 +21,7 @@ export class AnimalsService {
 
     getAnimals() :Observable<MyResponse<Animals[]>>{
         return this.apiService.getAll<Animals[]>("animals")
-    }  
+    }
 
     editAnimal( animalForm: AnimalForm, animal_id:string ):Observable<MyResponse<Animals>>  { 
         return this.apiService
@@ -35,7 +35,14 @@ export class AnimalsService {
         .pipe(catchError((error) => throwError(() => error.error.message)));
     }
 
-    setAnimal(animal: Animals) {
-        this._currentAnimal.set(animal);
+    setAnimal(animal: Animals |null) {
+        this._currentAnimal.set(animal); 
+    }
+    
+    createAnimal(animalForm: AnimalForm) {
+        const {...animalbody}=animalForm
+        return this.apiService
+        .store<AnimalForm>('animals', animalbody)
+        .pipe(catchError((error) => throwError(() => error.error.message)));
     }
 }
